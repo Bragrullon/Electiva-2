@@ -1,0 +1,87 @@
+.card {
+    width: 400px;
+    aspect-ratio: 1 / 0.7;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+    margin: auto; /* Centrar la tarjeta horizontalmente */
+    text-align: center; /* Centrar el contenido */
+     overflow: visible; /* Ocultar el contenido que se desborda */
+}
+
+.card .image {
+    width: 500px; /* Cambiar de 200% a 100% para ajustar a la tarjeta */
+    height: 500px; /* Cambiar de 200% a 100% para ajustar a la tarjeta */
+    border-radius: inherit;
+    text-align: center;
+    position: relative; /* Añadir posición relativa */
+}
+
+.card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 90%;
+    border-radius: inherit;
+    transition: 0.5s ease-in-out;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.4s; /* Transición de opacidad */
+    pointer-events: none; /* Permitir que el cursor pase a través de la línea */
+    box-sizing: border-box; /* Incluir el borde en el tamaño total */
+    padding: 40px; /* Espaciado interior para que la línea cubra todo el texto */
+
+}    
+
+.card:hover img {
+    filter: grayscale(1) brightness(0.4);
+}
+
+.card:hover::after {
+    opacity: 1;
+    inset: 20px;
+}
+
+.content {
+    width: 80%;
+    position: absolute;
+    bottom: 20px; /* Ajustar la posición vertical */
+    left: 50%;
+    transform: translateX(-50%); /* Centrar horizontalmente */
+    text-align: center;
+    color: white; /* Color del texto */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    padding: 10px; /* Espaciado interior */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+.card .content {
+    position: absolute;
+    bottom: 500%; /* Mover el texto fuera de la tarjeta */
+    left: 50%;
+    transform: translateX(-50%); /* Centrar horizontalmente */
+    text-align: center;
+    color: white; /* Color del texto */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    padding: 10px; /* Espaciado interior */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: bottom 0.4s; /* Transición de posición vertical */
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card:hover .content {
+    bottom: 20px; /* Mover el texto hacia arriba */
+}
